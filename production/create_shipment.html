@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="images/favicon.ico" type="image/ico" />
+
+    <title>Bill Tracking - Tạo đơn hàng</title>
+
+    <!-- Bootstrap -->
+    <link href="cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <!-- Datatables -->
+
+    <link href="../vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+    <div class="container body">
+        <div class="main_container">
+            <div class="col-md-3 left_col">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Bill Tracking</span></a>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_pic">
+                            <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        </div>
+                        <div class="profile_info">
+                            <span>Chào,</span>
+                            <h2>John Doe</h2>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
+
+                    <br />
+
+                    <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <h3>Quản lý</h3>
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-home"></i> Trang chủ <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="orders.html">Đơn hàng</a></li>
+                                    <li><a href="debt_user.html">Công nợ</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-edit"></i> Thông báo <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="create_shipment.html">Tạo đơn hàng</a></li>
+                                        <li><a href="shipment.html">Danh sách/List Shipment</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                    <!-- /sidebar menu -->
+
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
+                </div>
+            </div>
+
+            <!-- top navigation -->
+            <div class="top_nav">
+                <div class="nav_menu">
+                    <div class="nav toggle">
+                        <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+                    </div>
+                    <nav class="nav navbar-nav">
+                        <ul class=" navbar-right">
+                            <li class="nav-item dropdown open" style="padding-left: 15px;">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                                    id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                                    <img src="images/img.jpg" alt="">John Doe
+                                </a>
+                                <div class="dropdown-menu dropdown-usermenu pull-right"
+                                    aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="javascript:;"> Profile</a>
+                                    <a class="dropdown-item" href="javascript:;">
+                                        <span class="badge bg-red pull-right">50%</span>
+                                        <span>Settings</span>
+                                    </a>
+                                    <a class="dropdown-item" href="javascript:;">Help</a>
+                                    <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i>
+                                        Log Out</a>
+                                </div>
+                            </li>
+
+                            <li role="presentation" class="nav-item dropdown open">
+                                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-envelope-o"></i>
+                                    <span class="badge bg-green">6</span>
+                                </a>
+                                <ul class="dropdown-menu list-unstyled msg_list" role="menu"
+                                    aria-labelledby="navbarDropdown1">
+                                    <li class="nav-item">
+                                        <a class="dropdown-item">
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were
+                                                where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item">
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were
+                                                where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item">
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were
+                                                where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="dropdown-item">
+                                            <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
+                                            <span>
+                                                <span>John Smith</span>
+                                                <span class="time">3 mins ago</span>
+                                            </span>
+                                            <span class="message">
+                                                Film festivals used to be do-or-die moments for movie makers. They were
+                                                where...
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="text-center">
+                                            <a class="dropdown-item">
+                                                <strong>See All Alerts</strong>
+                                                <i class="fa fa-angle-right"></i>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- /top navigation -->
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+
+                <div class="row" style="display: block;">
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="dashboard_graph">
+
+                            <div class="row x_title">
+                                <div class="col-md-6">
+                                    <h3>Hóa đơn</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-12 col-sm-12 ">
+                        <div class="x_panel">
+                            <div class="x_content">
+                                <h2>Tạo hóa đơn của bạn tại đây!</h2>
+                                <!-- Tabs -->
+                                <div id="wizard_verticle" class="form_wizard wizard_verticle">
+                                    
+                                    <ul class="list-unstyled wizard_steps">
+                                        <li>
+                                            <a href="#step-11">
+                                                <span class="step_no">1</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-22">
+                                                <span class="step_no">2</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#step-33">
+                                                <span class="step_no">3</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div id="step-11">
+                                        <form class="form-horizontal form-label-left">
+
+                                            <span class="section">Thông tin đơn hàng (Shipment Info)</span>
+
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="service">Dịch vụ vận chuyển (Services)<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <select name="service" id="service" class="form-control" required="required">
+                                                        <option value="1">Dịch vụ vận chuyển 1</option>
+                                                        <option value="1">Dịch vụ vận chuyển 2</option>
+                                                        <option value="1">Dịch vụ vận chuyển 3</option>
+                                                        <option value="1">Dịch vụ vận chuyển 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="agency">Chọn chi nhánh <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <select name="agency" id="agency" class="form-control" required="required">
+                                                        <option value="1">Chi nhánh HCM</option>
+                                                        <option value="1">Chi nhánh Hà Nội</option>
+                                                        <option value="1">Chi nhánh Đà Nẵng</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="reference"
+                                                    class="col-form-label col-md-3 col-sm-3 label-align">Reference Code</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input id="reference" class="form-control " type="number"
+                                                        name="reference">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label
+                                                    class="col-form-label col-md-3 col-sm-3 label-align">Loại (Type)</label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <p class="m-0" style="padding: calc(.375rem + 1px) 0;">
+                                                        <input type="radio" class="flat" name="gender" id="genderM" value="M" checked="" required /> 
+                                                        <label for="genderM">DOC</label>
+                                                        <input type="radio" class="flat" name="gender" id="genderF" value="F" /> 
+                                                        <label for="genderF">PACK</label>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align">Cân nặng (Gross Weight)<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-3 col-sm-6 ">
+                                                    <input type="text" class="form-control" id="inputSuccess3" placeholder="0">
+                                                    <span class="form-control-feedback right" aria-hidden="true"><b>Kg</b></span>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div id="step-22">
+                                        <form class="form-horizontal form-label-left">
+
+                                            <span class="section">Thông tin người gửi (Sender)</span>
+
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="service">Công ty (Company Name)<span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <select name="service" id="service" class="form-control" required="required">
+                                                        <option value="1">SAIGON BAY 1</option>
+                                                        <option value="1">SAIGON BAY 2</option>
+                                                        <option value="1">SAIGON BAY 3</option>
+                                                        <option value="1">SAIGON BAY 4</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="contact">Người liên hệ (Contact Name) <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="contact" id="contact" class="form-control" placeholder="Người liên hệ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="address">Địa chỉ người liên hệ (Contact Address) <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="address" id="address" class="form-control" placeholder="Địa chỉ">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-form-label col-md-3 col-sm-3 label-align"
+                                                    for="telephone">Số điện thoại (Telephone) <span class="required">*</span>
+                                                </label>
+                                                <div class="col-md-6 col-sm-6">
+                                                    <input type="text" name="telephone" id="telephone" class="form-control" placeholder="" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="email" class="col-form-label col-md-3 col-sm-3 label-align">Email
+                                                </label>
+                                                <div class="col-md-6 col-sm-6 ">
+                                                    <input type="email" class="form-control" id="email" placeholder="">
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div id="step-33">
+                                        <form action="./shipment.html" method="get" class="form-group">
+
+                                            <span class="section">Thông tin người nhận (Receiver)</span>
+
+                                            <div class="row gap-lg-2">
+                                                <div class="col-lg-5 col-12">
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Công ty (Company Name)<span class="required">*</span></label>
+                                                        <select name="service" id="service" class="form-control" required="required">
+                                                            <option value="1">SAIGON BAY 1</option>
+                                                            <option value="1">SAIGON BAY 2</option>
+                                                            <option value="1">SAIGON BAY 3</option>
+                                                            <option value="1">SAIGON BAY 4</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Người liên hệ (Contact Name)<span class="required">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="Người liên hệ">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label"
+                                                            for="telephone">Số điện thoại (Telephone) <span class="required">*</span>
+                                                        </label>
+                                                        <input type="text" name="telephone" id="telephone" class="form-control" placeholder="" required>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label"
+                                                            for="telephone">Quốc gia (Country) <span class="required">*</span>
+                                                        </label>
+                                                            <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Quốc gia" required>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-form-label"
+                                                            for="telephone">Mã bưu chính (Postal Code) <span class="required">*</span>
+                                                        </label>
+                                                            <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Code" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-1 col-12">
+                                                </div>
+                                                <div class="col-lg-5 col-12">
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Thành phố (City) <span class="required">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="Thành phố">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Tỉnh (Province) <span class="required">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="Tỉnh">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Địa chỉ (Address) 1 <span class="required">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Địa chỉ (Address) 2 <span class="required">*</span></label>
+                                                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-form-label">Địa chỉ (Address) 3</label>
+                                                        <input type="text" class="form-control" placeholder="Địa chỉ">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- End SmartWizard Content -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- /page content -->
+
+            <!-- footer content -->
+            <footer>
+                <div class="pull-right">
+                    Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                </div>
+                <div class="clearfix"></div>
+            </footer>
+            <!-- /footer content -->
+        </div>
+    </div>
+
+    <!--Large modal-->
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel"><b>Thông tin đơn hàng (Order Shipment)</b></h4>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <h5>Thông tin đơn hàng (Shipment Info)</h5>
+                            <p>Dịch vụ vận chuyển (Services): dịch vụ vận chuyển 1</p>
+                            <p>Chi nhánh: HCM</p>
+                            <p>Reference Code: 31235</p>
+                            <p>Loại (Type): PACK</p>
+                            <p>Số kiện (Number of Packages): 2</p>
+                            <p>Cân nặng (Gross Weight): 70 Kg</p>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <h5>Thông tin người gửi (Sender)</h5>
+                            <p>Công ty (Company Name): SAIGON BAY IMPORT-EXPORT JOINT ST</p>
+                            <p>Người liên hệ (Contact Name): Nguyễn Van A</p>
+                            <p>Địa chỉ liên hệ (Contact address): 6th Floor, Fimexico Buiding.</p>
+                            <p>Số điện thoại (Telephone): 0314521511</p>
+                            <p>Email: nguyenvana@gmail.com</p>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <h5>Thông tin người nhận (Receiver)</h5>
+                            <p>Công ty (Company Name): </p>
+                            <p>Người liên hệ (Contact Name): </p>
+                            <p>Số điện thoại (Telephone): 0314521511</p>
+                            <p>Quốc gia (Country): Afghanistan - AF</p>
+                            <p>Mã bưu chính (Postal code): 2131</p>
+                            <p>Địa chỉ liên hệ (Contact address): 6th Floor, Fimexico Buiding.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- FastClick -->
+    <script src="../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Datatables -->
+    <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <!-- jQuery Smart Wizard -->
+    <script src="../vendors/jQuery-Smart-Wizard/js/jquery.smartWizard.js"></script>
+    <!-- Custom Theme Scripts -->
+    <script src="../build/js/custom.min.js"></script>
+
+</body>
+
+</html>
